@@ -1,0 +1,27 @@
+def insertion_sort(vetor):
+  """
+  Ordena um vetor em ordem crescente utilizando o método insertion sort.
+
+  Args:
+    vetor: Vetor a ser ordenado.
+
+  Returns:
+    Vetor ordenado.
+  """
+
+  # Declare as variáveis necessárias
+  i = 1
+
+  # Iterate over the elements of the vector
+  while i < len(vetor):
+    # Compare the current element with the elements before it
+    j = i - 1
+    while j >= 0 and vetor[i] < vetor[j]:
+      # If the current element is smaller than the previous element, swap them
+      vetor[i], vetor[j] = vetor[j], vetor[i]
+      i -= 1
+      j -= 1
+
+    i += 1
+
+  return vetor
