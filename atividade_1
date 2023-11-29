@@ -1,0 +1,29 @@
+def bubble_sort(vetor):
+  """
+  Ordena um vetor em ordem crescente utilizando o método bubble sort.
+
+  Args:
+    vetor: Vetor a ser ordenado.
+
+  Returns:
+    Vetor ordenado.
+  """
+
+  # Declare as variáveis necessárias
+  fim = len(vetor) - 1
+  ordenado = False
+
+  # Execute o loop até que o vetor esteja ordenado
+  while not ordenado:
+    ordenado = True
+    for i in range(0, fim):
+      # Compare os elementos adjacentes
+      if vetor[i] > vetor[i + 1]:
+        # Se os elementos não estiverem em ordem, troque-os de lugar
+        vetor[i], vetor[i + 1] = vetor[i + 1], vetor[i]
+        ordenado = False
+
+    # Decremente o fim do vetor
+    fim -= 1
+
+  return vetor
