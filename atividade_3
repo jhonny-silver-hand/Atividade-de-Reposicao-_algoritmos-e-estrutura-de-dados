@@ -1,0 +1,6 @@
+Com as funções da linguagem C, realize as instruções:
+
+crie um ponteiro que indique uma variável do tipo inteiro;
+defina que esse ponteiro é igual à alocação de memória para guardar oito dados do tipo inteiro;
+efetue a realocação de memória para um tamanho que guarde doze dados inteiros;
+libere o espaço alocado nas funções anteriores.
