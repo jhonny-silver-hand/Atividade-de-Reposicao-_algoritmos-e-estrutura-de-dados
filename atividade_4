@@ -1,0 +1,55 @@
+class Animal:
+  """
+  Classe que representa o cadastro de um animal de estimação.
+
+  Atributos:
+    nome: Nome do animal.
+    raça: Raça do animal.
+    idade: Idade do animal.
+    nome_responsavel: Nome do responsável pelo animal.
+    telefone_responsavel: Telefone do responsável pelo animal.
+  """
+
+  def __init__(self, nome, raça, idade, nome_responsavel, telefone_responsavel):
+    """
+    Constrói um novo cadastro de animal de estimação.
+
+    Args:
+      nome: Nome do animal.
+      raça: Raça do animal.
+      idade: Idade do animal.
+      nome_responsavel: Nome do responsável pelo animal.
+      telefone_responsavel: Telefone do responsável pelo animal.
+    """
+    self.nome = nome
+    self.raça = raça
+    self.idade = idade
+    self.nome_responsavel = nome_responsavel
+    self.telefone_responsavel = telefone_responsavel
+
+  def __repr__(self):
+    """
+    Representação string do cadastro de animal de estimação.
+
+    Returns:
+      Representação string do cadastro de animal de estimação.
+    """
+    return f"Animal(nome={self.nome}, raça={self.raça}, idade={self.idade}, " \
+           f"nome_responsavel={self.nome_responsavel}, telefone_responsavel={self.telefone_responsavel})"
+
+
+def solicitar_cadastro_animal():
+  """
+  Solicita os atributos do cadastro de um animal de estimação.
+
+  Returns:
+    O cadastro do animal de estimação.
+  """
+
+  nome = input("Insira o nome do animal: ")
+  raça = input("Insira a raça do animal: ")
+  idade = input("Insira a idade do animal: ")
+  nome_responsavel = input("Insira o nome do responsável pelo animal: ")
+  telefone_responsavel = input("Insira o telefone do responsável pelo animal: ")
+
+  return Animal(nome, raça, idade, nome_responsavel, telefone_responsavel)
