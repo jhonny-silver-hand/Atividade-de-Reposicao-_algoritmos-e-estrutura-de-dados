@@ -1,0 +1,109 @@
+class Node:
+  def __init__(self, valor, esquerdo=None, direito=None):
+    self.valor = valor
+    self.esquerdo = esquerdo
+    self.direito = direito
+
+
+def criar_arvore(lista):
+  """
+  Cria uma árvore binária a partir de uma lista.
+
+  Args:
+    lista: Lista de valores para a árvore.
+
+  Returns:
+    Raiz da árvore.
+  """
+
+  raiz = None
+  for valor in lista:
+    raiz = inserir(raiz, valor)
+  return raiz
+
+
+def inserir(raiz, valor):
+  """
+  Insere um valor em uma árvore binária.
+
+  Args:
+    raiz: Raiz da árvore.
+    valor: Valor a ser inserido.
+
+  Returns:
+    Nova raiz da árvore.
+  """
+
+  if raiz is None:
+    return Node(valor)
+
+  if valor < raiz.valor:
+    raiz.esquerdo = inserir(raiz.esquerdo, valor)
+  else:
+    raiz.direito = inserir(raiz.direito, valor)
+
+  return raiz
+
+
+def remover(raiz, valor):
+  """
+  Remove um valor de uma árvore binária.
+
+  Args:
+    raiz: Raiz da árvore.
+    valor: Valor a ser removido.
+
+  Returns:
+    Nova raiz da árvore.
+  """
+
+  if raiz is None:
+    return None
+
+  if valor == raiz.valor:
+    if raiz.esquerdo is None and raiz.direito is None:
+      return None
+    elif raiz.esquerdo is None:
+      return raiz.direito
+    elif raiz.direito is None:
+      return raiz.esquerdo
+    else:
+      sucessor = encontrar_sucessor(raiz.direito)
+      valor_sucessor = sucessor.valor
+      raiz.valor = valor_sucessor
+      raiz.direito = remover(raiz.direito, valor_sucessor)
+  elif valor < raiz.valor:
+    raiz.esquerdo = remover(raiz.esquerdo, valor)
+  else:
+    raiz.direito = remover(raiz.direito, valor)
+
+  return raiz
+
+
+def encontrar_sucessor(raiz):
+  """
+  Encontra o sucessor de um nó em uma árvore binária.
+
+  Args:
+    raiz: Raiz da árvore.
+
+  Returns:
+    Sucessor do nó.
+  """
+
+  if raiz.esquerdo is None:
+    return raiz
+  else:
+    return encontrar_sucessor(raiz.esquerdo)
+
+
+raiz = criar_arvore(lista1)
+
+# Adicionar o valor 50 à árvore
+raiz = inserir(raiz, 50)
+
+# Remover o valor 45 da árvore
+raiz = remover(raiz, 45)
+
+print("Árvore da lista 1:")
+print_arvore(raiz)
